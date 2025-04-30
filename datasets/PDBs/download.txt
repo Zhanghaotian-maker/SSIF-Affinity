@@ -1,0 +1,1 @@
+From http://www.pdbbind.org.cn/download.php, download PDBbind v2020: Protein-protein complexes.
