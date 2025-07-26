@@ -3,11 +3,11 @@ import numpy as np
 from scipy.stats import pearsonr
 import matplotlib.pyplot as plt
 
-file_path = 'result/predicted_affinities.csv'
-data = pd.read_csv(file_path, usecols=['Predicted', 'Affinity'])  
+file_path = './result/predicted_affinities_test.csv'
+data = pd.read_csv(file_path, usecols=['Predicted_Affinity', 'True_Affinity'])  
 
-predicted = data['Predicted'].values
-true = data['Affinity'].values
+predicted = data['Predicted_Affinity'].values
+true = data['True_Affinity'].values
 
 rmse = np.sqrt(np.mean((predicted - true) ** 2))
 mae = np.mean(np.abs(predicted - true))
