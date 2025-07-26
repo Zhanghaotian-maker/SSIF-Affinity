@@ -4,7 +4,7 @@ import argparse
 import numpy as np
 import pandas as pd
 from config.config import Config
-from model.network.proAffinity import ProAffinity
+from model.network.SSIFAffinity import SSIFAffinity
 from tools.train import ProteinDataset
 
 
@@ -38,7 +38,7 @@ def main(args):
     )
 
     device = torch.device(Config.DEVICE)
-    model = ProAffinity(
+    model = SSIFffinity(
         Config.INPUT_SIZE,
         Config.HIDDEN_SIZE_1,
         Config.HIDDEN_SIZE_2,
