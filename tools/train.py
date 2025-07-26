@@ -4,7 +4,7 @@ import torch.nn as nn
 from torch_geometric.data import Data
 from config.config import Config
 from torch.utils.data import Dataset
-from model.network.proAffinity import ProAffinity
+from model.network.SSIFAffinity import SSIFAffinity
 import pandas as pd
 import json
 import os
@@ -140,8 +140,8 @@ class ProteinDataset(Dataset):
         return data_sequence, data_structure, data_interface_sequence, data_interface_structure, affinity
 
 
-train_Affinity_csv = 'G:/SSF-Affinity+residue_interface/training_affinity.csv'
-val_Affinity_csv = 'G:/SSF-Affinity+residue_interface/val_affinity.csv'
+train_Affinity_csv = './training_affinity.csv'
+val_Affinity_csv = './val_affinity.csv'
 
 
 def train_model():
@@ -154,9 +154,9 @@ def train_model():
                                  transform=None)
 
     # 初始化模型
-    model = ProAffinity(Config.INPUT_SIZE, Config.HIDDEN_SIZE_1, Config.HIDDEN_SIZE_2, Config.IN_CHANNELS,
-                        Config.HIDDEN_CHANNELS_1, Config.HIDDEN_CHANNELS_2, Config.HIDDEN_CHANNELS_3,
-                        Config.HIDDEN_CHANNELS_fc1, Config.HIDDEN_CHANNELS_fc2, Config.OUT_CHANNELS).to(Config.DEVICE)
+    model = SSIF-Affinity(Config.INPUT_SIZE, Config.HIDDEN_SIZE_1, Config.HIDDEN_SIZE_2, Config.IN_CHANNELS,
+                          Config.HIDDEN_CHANNELS_1, Config.HIDDEN_CHANNELS_2, Config.HIDDEN_CHANNELS_3,
+                          Config.HIDDEN_CHANNELS_fc1, Config.HIDDEN_CHANNELS_fc2, Config.OUT_CHANNELS).to(Config.DEVICE)
 
     optimizer = optim.Adam(model.parameters(), lr=Config.LEARNING_RATE, weight_decay=Config.WEIGHT_DECAY)
     criterion = nn.MSELoss()
@@ -177,7 +177,7 @@ def train_model():
     patience_counter = 0
     PATIENCE = 20
     # 创建结果目录结构
-    result_dir = 'G:/SSF-Affinity+residue_interface/result5'
+    result_dir = './result'
     best_model_dir = os.path.join(result_dir, 'best_models')
     all_models_dir = os.path.join(result_dir, 'all_models')
     os.makedirs(best_model_dir, exist_ok=True)
