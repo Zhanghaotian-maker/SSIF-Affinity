@@ -12,7 +12,7 @@ def main():
     csv_dir = os.path.join(script_dir, '../datasets/CSVs')
     end_pdb_dir = os.path.join(script_dir, '../datasets/the_end_PDB')
     end_csv_dir = os.path.join(script_dir, '../datasets/the_end_CSV')
-    executable_path = '../features/get_edge.exe'
+    executable_path = '../features/get_features.exe'
 
     # 步骤1：从PDB文件提取信息到CSV文件
     file_data = PDBProcessing.extract_pdb_info(pdb_dir)
