@@ -28,10 +28,10 @@ class EdgeFeatureConv(MessagePassing):
         return f'{self.__class__.__name__}({self.lin_node.in_features}, {self.lin_node.out_features})'
 
 
-class GraphNet(torch.nn.Module):
+class GraphConvNet(torch.nn.Module):
     def __init__(self, in_channels, hidden_channels_1, hidden_channels_2, hidden_channels_3,
                  heads=2, dropout_rate=0.5, concat=False):
-        super(GraphNet, self).__init__()
+        super(GraphConvNet, self).__init__()
 
         # Edge Feature Convolution Layers
         self.conv1 = EdgeFeatureConv(in_channels, 5, hidden_channels_1)
