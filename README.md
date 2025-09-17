@@ -127,7 +127,3 @@ Use your own dataset (including the  structures of protein-protein complexes, se
 ## Contact
 For any question and comment regarding the code, please reach out to
 23121213864@stu.xidian.edu.cn
-
-
-## References
-If you use this program, please cite our paper:
